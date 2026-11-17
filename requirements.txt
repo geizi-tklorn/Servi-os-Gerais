@@ -1,0 +1,33 @@
+# Framework Web Principal
+
+Flask==3.0.3
+
+Werkzeug==3.0.3
+
+
+
+# Banco de Dados e ORM
+
+Flask-SQLAlchemy==3.1.1
+
+SQLAlchemy==2.0.31
+
+
+
+# Gerenciamento de Variáveis de Ambiente (.env)
+
+python-dotenv==1.0.1
+
+
+
+# Validação e Integração (CPF/CNPJ e API ViaCEP)
+
+validate-docbr==1.10.0
+
+requests==2.32.3
+
+
+
+# Servidor WSGI para Produção (Acesso remoto/Deploy)
+
+gunicorn==22.0.0
