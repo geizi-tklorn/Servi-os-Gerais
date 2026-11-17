@@ -1,0 +1,66 @@
+loja-servicos-gerais/
+│
+├── app.py                      # Arquivo principal da aplicação (Backend Python: Flask/FastAPI)
+├── config.py                   # Configurações de ambiente, chaves secretas e banco de dados
+├── requirements.txt            # Dependências do projeto Python
+├── .env                        # Variáveis de ambiente (credenciais, URLs de API, etc.)
+│
+├── database/                   # Camada de dados e persistência
+│   ├── __init__.py
+│   ├── db_connection.py        # Conexão com o banco de dados (SQLite, PostgreSQL, etc.)
+│   ├── models.py               # Modelos das tabelas (Clientes, Serviços, Produtos)
+│   └── seed.py                 # Script para popular o banco com dados iniciais de teste
+│
+├── routes/                     # Controladores e rotas da aplicação (Endpoints)
+│   ├── __init__.py
+│   ├── main_routes.py          # Rotas principais (Home, Sobre, Contato)
+│   ├── auth_routes.py          # Rotas de login/autenticação de clientes e administradores
+│   ├── clientes_routes.py      # Rotas CRUD para cadastro e perfil de clientes
+│   ├── servicos_routes.py      # Rotas para exibição e solicitação do catálogo de serviços
+│   └── produtos_routes.py      # Rotas para exibição e compra/reserva de produtos e ferramentas
+│
+├── services/                   # Regras de negócio e integrações externas
+│   ├── __init__.py
+│   ├── cliente_service.py      # Validação de CPF/CNPJ, busca de CEP (ViaCEP), etc.
+│   ├── orcamento_service.py    # Cálculo de orçamentos de serviços e carrinho de produtos
+│   └── notificacao_service.py  # Envio de e-mails ou mensagens (WhatsApp/SMS) para o cliente
+│
+├── static/                     # Arquivos estáticos públicos (Frontend)
+│   ├── css/
+│   │   ├── reset.css           # Padronização de estilos entre navegadores
+│   │   ├── style.css           # Estilos globais, variáveis de cores, tipografia e responsividade
+│   │   ├── cadastro.css        # Estilos específicos para formulários de clientes
+│   │   └── catalogos.css       # Estilos de grid/cards para serviços e ferramentas
+│   │
+│   ├── js/
+│   │   ├── main.js             # Scripts globais (menu mobile, modais, alertas)
+│   │   ├── validacao.js        # Máscaras (CPF, telefone, CEP) e validação de formulário no frontend
+│   │   ├── api_client.js       # Comunicação assíncrona (Fetch API) com o backend Python
+│   │   └── filtros.js          # Busca em tempo real e filtro por categoria nos catálogos
+│   │
+│   └── img/
+│       ├── logo/               # Logotipo e ícones da loja (favicon, manifest PWA)
+│       ├── servicos/           # Fotos ilustrativas dos serviços (elétrica, hidráulica, pintura)
+│       └── produtos/           # Fotos dos produtos e ferramentas à venda/aluguel
+│
+├── templates/                  # Páginas HTML (Renderizadas via Jinja2 ou servidas estaticamente)
+│   ├── base.html               # Layout mestre (Cabeçalho, Navbar responsiva, Rodapé)
+│   ├── index.html              # Página inicial (Destaques de serviços, promoções de ferramentas)
+│   │
+│   ├── clientes/
+│   │   ├── cadastro.html       # Tela de cadastro de novos clientes
+│   │   ├── login.html          # Tela de acesso do cliente
+│   │   └── perfil.html         # Área do cliente (dados cadastrais, histórico de pedidos/serviços)
+│   │
+│   ├── servicos/
+│   │   ├── catalogo.html       # Catálogo completo de serviços prestados com filtros
+│   │   └── detalhes.html       # Detalhes do serviço e formulário de solicitação de orçamento
+│   │
+│   └── produtos/
+│       ├── catalogo.html       # Catálogo de produtos e ferramentas com preços e estoque
+│       └── detalhes.html       # Especificações técnicas da ferramenta/produto
+│
+└── tests/                      # Testes automatizados
+    ├── __init__.py
+    ├── test_clientes.py        # Testes das rotas e validações de cadastro
+    └── test_catalogos.py       # Testes de listagem e filtros de serviços/produtos
